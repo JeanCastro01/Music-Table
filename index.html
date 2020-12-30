@@ -11,6 +11,73 @@
      <link rel="stylesheet" href="style.css">
   
  <title>Music Table</title>
+  <script type="text/javascript" language="javascript">
+
+    	var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        	var fso = new ActiveXObject("Scripting.FileSystemObject");	
+        	var FILENAME='data.xml';
+       
+
+        function createfile()
+    {
+
+    	var file;
+
+        	var e1=document.getElementById('artist').value;
+        	var p1=document.getElementById('album').value;
+        	var em1=document.getElementById('year').value;
+        	var d1=document.getElementById('label').value;
+
+        	
+
+    	if(fso.fileExists(FILENAME))
+        	{
+    		xmlDoc.load(FILENAME);
+        		var lng;
+        		lng=xmlDoc.getElementsByTagName("music");
+
+        		var xmlread= fso.OpenTextFile(FILENAME,1,true,0);
+
+        		var x=xmlread.readAll();
+        		var replace=x.replace('</musictable>','');
+        		var sno=lng.length + 1;
+        		file=fso.OpenTextFile(FILENAME,2,true);
+
+        		file.writeLine(replace);
+
+        		file.WriteLine('<music>');
+        		file.WriteLine('<Artistname>'+e1+'</Artistname>');
+        		file.WriteLine('<Albumname>'+p1+'</Albumname>');
+        		file.WriteLine('<YearOfRelease>'+em1+'</YearOfRelease>');
+        		file.WriteLine('<RecordLabelName>'+d1+'</RecordLabelName>');
+                
+                file.WriteLine('</music>');
+        		file.WriteLine('</musictable>');
+        		
+    		alert('another file updated');
+        	}
+        	else
+        	{
+
+        		file= fso.CreateTextFile(FILENAME, true);
+        		file.WriteLine('<?xml version="1.0" encoding="utf-8" ?>');
+    		file.WriteLine('<?xml-stylesheet type="text/xsl" href="mytable.xslt" version="1.0" ?>');
+        		file.WriteLine('<music>');
+        		file.WriteLine('<Artistname>'+e1+'</Artistname>');
+        		file.WriteLine('<Albumname>'+p1+'</Albumname>');
+        		file.WriteLine('<YearOfRelease>'+em1+'</YearOfRelease>');
+        		file.WriteLine('<RecordLabelName>'+d1+'</RecordLabelName>');
+                
+                file.WriteLine('</music>');
+        		file.WriteLine('</musictable>');
+
+    		alert('file updated');
+        	}
+
+        }
+
+
+        </script>
   </head>
   <body>
 
@@ -43,10 +110,15 @@
        <label for="year">Record Label Name</label>
        <input type="text" class="form-control" id="label" palceholder="Record Label Name">
      </div>
-     <input type="button" id="submit" value="Add Music" class="btn btn-primary btn-block">
+     <input type="button" id="submit" value="Add Music" class="btn btn-primary btn-block" onclick="myFunction();" onclick="createfile();" >
    </form>
  </div>
 
+<script>
+function myFunction() {
+  confirm("Thank You For Register your music!");
+}
+</script>
 
 
   </body>
