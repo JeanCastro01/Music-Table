@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="mytable.xsl"?>
-<musictable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="mytable.xsd">
-
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet
+        type="text/xsl"
+        href="mytable.xslt"
+        version="1.0" ?>
+<musictable>
    <music>
       <Artistname>Artdate1</Artistname>
       <Albumname>Hands Up</Albumname>
@@ -10,7 +11,21 @@
       <RecordLabelName>Fish And Chick's</RecordLabelName>
    </music>
       <music>
-      <Artistname>Artdate1</Artistname>
+      <Artistname>Artdate2</Artistname>
+      <Albumname>Hands Up</Albumname>
+      <YearOfRelease>2020</YearOfRelease>
+      <RecordLabelName>Fish And Chick's</RecordLabelName>
+   </music>
+
+    <music>
+      <Artistname>Artdate2</Artistname>
+      <Albumname>Hands Up</Albumname>
+      <YearOfRelease>2020</YearOfRelease>
+      <RecordLabelName>Fish And Chick's</RecordLabelName>
+   </music>
+
+    <music>
+      <Artistname>Artdate6</Artistname>
       <Albumname>Hands Up</Albumname>
       <YearOfRelease>2020</YearOfRelease>
       <RecordLabelName>Fish And Chick's</RecordLabelName>

@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
-    <xsl:output method="html" doctype-public="XSLT-compat" omit-xml-declaration="yes" encoding="UTF-8" indent="yes" />
-<xsl:template match="/">å
-<html lang="en">
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsl:stylesheet
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        version="1.0"
+        xmlns:ssp="http://spaceship">
+    <xsl:template match="/musictable">
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -12,7 +15,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
-    <link rel="stylesheet" href="styles.css"></link>
+    <link rel="stylesheet" type="text/css" href="styles.css"></link>
     <script rel="stylesheet" href="javascript.js"></script>
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'></link>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
@@ -29,7 +32,7 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item active"> <a href="index.html" class="nav-link"> Home </a> </li>
-                <li class="nav-item"> <a href="mytable.html" class="nav-link"> My Music Table </a> </li>
+               
 
             </ul>
         </div>
@@ -96,4 +99,4 @@
 
 </html>
 </xsl:template>
-</xsl:transform>
+</xsl:stylesheet>
