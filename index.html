@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  
+ <title>Music Shop</title>
+
+        <script type="text/javascript" language="javascript">
+
+    	var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        	var fso = new ActiveXObject("Scripting.FileSystemObject");	
+        	var FILENAME='data.xml';
+       
+
+        function createfile()
+    {
+
+    	var file;
+
+        	var e1=document.getElementById('artistname').value;
+        	var p1=document.getElementById('albumname').value;
+        	var em1=document.getElementById('yearofrelease').value;
+        	var d1=document.getElementById('recordlabelname').value;
+
+        	
+
+    	if(fso.fileExists(FILENAME))
+        	{
+    		xmlDoc.load(FILENAME);
+        		var lng;
+        		lng=xmlDoc.getElementsByTagName("music");
+
+        		var xmlread= fso.OpenTextFile(FILENAME,1,true,0);
+
+        		var x=xmlread.readAll();
+        		var replace=x.replace('</musictable>','');
+        		var sno=lng.length + 1;
+        		file=fso.OpenTextFile(FILENAME,2,true);
+
+        		file.writeLine(replace);
+
+        		file.WriteLine('<music>');
+        		file.WriteLine('<Artistname>'+e1+'</Artistname>');
+        		file.WriteLine('<Albumname>'+p1+'</Albumname>');
+        		file.WriteLine('<YearOfRelease>'+em1+'</YearOfRelease>');
+        		file.WriteLine('<RecordLabelName>'+d1+'</RecordLabelName>');
+                
+                file.WriteLine('</music>');
+        		file.WriteLine('</musictable>');
+        		
+    		alert('another file updated');
+        	}
+        	else
+        	{
+
+        		file= fso.CreateTextFile(FILENAME, true);
+        		file.WriteLine('<?xml version="1.0" encoding="utf-8" ?>');
+    		file.WriteLine('<?xml-stylesheet type="text/xsl" href="mytable.xsl"?>');
+        		file.WriteLine('<music>');
+        		file.WriteLine('<Artistname>'+e1+'</Artistname>');
+        		file.WriteLine('<Albumname>'+p1+'</Albumname>');
+        		file.WriteLine('<YearOfRelease>'+em1+'</YearOfRelease>');
+        		file.WriteLine('<RecordLabelName>'+d1+'</RecordLabelName>');
+                
+                file.WriteLine('</music>');
+        		file.WriteLine('</musictable>');
+
+    		alert('file updated');
+        	}
+
+
+        }
+
+        </script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> <button class="navbar-toggler" type="button" data-target="#navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item active"> <a href="#" class="nav-link"> Home </a> </li>
+            <li class="nav-item"> <a href="musictable.html" class="nav-link"> Music Table</a> </li>
+     </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+  <h1 style="color:peru;font-variant:small-caps">Please Enter Music Details</h1>
+        <table>
+            <form >
+                <tr>
+                    <th>
+                       Artist Name :
+                    </th>
+                    <th>
+                        <input type="text" id="artistname" placeholder=""/>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Album Name :
+                    </th>
+                    <th>
+                        <input type="text" id="albumname" placeholder=""/>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Year Of Release :
+                    </th>
+                    <th>
+                        <input type="text" id="yearofrelease" placeholder=""/>
+                    </th>
+                    </tr>
+
+                      <tr>
+                    <th>
+                        Record Label Name:
+                    </th>
+                    <th>
+                        <input type="text" id="recordlabelname" placeholder=""/>
+                    </th>
+                    </tr>
+                    <!-- NOW WE NEED TO ADD SUBMIT BUTTON -->
+                <tr>
+                    <th>
+                        <button type="submit" onSubmit="createFile()">
+                    </th>
+                </tr>    
+            </form>
+        </table>
+  </body>
