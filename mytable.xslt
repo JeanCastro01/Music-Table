@@ -23,6 +23,15 @@
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></link>
 
     <title>Music Table</title>
+     
+    <script>
+     function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+     document.getElementById("myTable").deleteRow(i);
+     }
+</script>
+    
+    
 </head>
 
 <body>
@@ -47,7 +56,7 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="myTable">
                 <thead>
                     
                     <tr>
@@ -56,7 +65,7 @@
                         <th>Album Name</th>
                         <th>Year Of Release</th>
                         <th>Record Label Name</th>
-                        <th>Action</th>
+                    
                         
                     </tr>
                     
@@ -65,11 +74,13 @@
                     <xsl:for-each select="/musictable/music">
                     <tr>
                         
-                        <td><xsl:value-of select="Artistname"/></td>
+                        <td> <xsl:value-of select="Artistname"/>
+                        </td>
+                        
                         <td><xsl:value-of select="Albumname"/></td>
                         <td><xsl:value-of select="YearOfRelease"/></td>
-                        <td><xsl:value-of select="RecordLabelName"/></td>
-                        <td> <div class="row container d-flex justify-content-center"> </div><button type="button" class="btn btn-primary btn-icon-text"> <i class="fa fa-check btn-icon-prepend"></i> Delete </button> <button type="button" class="btn btn-dark btn-icon-text"> Edit <i class="fa fa-pencil btn-icon-append"></i> </button> </td>
+                        <td><xsl:value-of select="RecordLabelName" /><input type="button" value="Delete" onclick="deleteRow(this)"></input></td> 
+                       
                           
                     </tr>
                      </xsl:for-each>
@@ -96,6 +107,8 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 </body>
+
+
 
 </html>
 </xsl:template>

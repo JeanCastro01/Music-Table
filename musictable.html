@@ -14,7 +14,14 @@
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
       <title>Music Table</title>
-      
+
+       <script>
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("myTable").deleteRow(i);
+        }
+    </script>
+  
    </head>
    <body>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark"><button class="navbar-toggler" type="button" data-target="#navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse">
@@ -33,7 +40,7 @@
                </div>
             </div>
             <div class="table-responsive">
-               <table class="table table-hover">
+               <table class="table table-hover" id="myTable">
                   <thead>
                      <tr>
                         <th>Artist Name</th>
@@ -51,7 +58,7 @@
                         <td>2020</td>
                         <td>Fish And Chick's</td>
                         <td>
-                           <div class="row container d-flex justify-content-center"></div><button type="button" class="btn btn-primary btn-icon-text"><i class="fa fa-check btn-icon-prepend"></i> Delete </button><button type="button" class="btn btn-dark btn-icon-text"> Edit <i class="fa fa-pencil btn-icon-append"></i></button></td>
+                           <div class="row container d-flex justify-content-center"></div><button type="button" onclick="myFunction();" class="btn btn-primary btn-icon-text"><i class="fa fa-check btn-icon-prepend"></i> Delete </button><button type="button" class="btn btn-dark btn-icon-text"> Edit <i class="fa fa-pencil btn-icon-append"></i></button></td>
                      </tr>
                   </tbody>
                </table>
