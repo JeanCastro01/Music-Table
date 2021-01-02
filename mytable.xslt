@@ -79,7 +79,7 @@
                         
                         <td><xsl:value-of select="Albumname"/></td>
                         <td><xsl:value-of select="YearOfRelease"/></td>
-                        <td><xsl:value-of select="RecordLabelName" /><input type="button" value="Delete" onclick="deleteRow(this)"></input></td> 
+                        <td><xsl:value-of select="RecordLabelName" /><input type="button" value="Delete" onclick="deleteRow(this)"></input><input type="button" value="Edit" onclick="deleteRow(this)"></input></td> 
                        
                           
                     </tr>
