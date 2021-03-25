@@ -12,4 +12,4 @@ tasks:
   - name: Install mongoose
     command: npm install mongoose
   - name: Run 
-    command: npm start && npm start
+    command: npm start
