@@ -1,5 +1,5 @@
 const http = require('http'),
-axios = require('axios'),
+// axios = require('axios'),
 logger = require('morgan'),
 cors = require('cors'),
 express = require('express'),
@@ -12,7 +12,6 @@ var port = 8000;
 app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
-
 
 // http.createServer((req, res)=>{
 //   res.write(users.join(", ")); //display the list of users on the page
@@ -45,9 +44,9 @@ app.use(require('./routes'));
 //     console.log('MongoDB is successfully connected');
 // });
 
-// app.listen(port, function(err){
-//     console.log('Listening on port: ' + port);
-// });
+app.listen(port, function(err){
+    console.log('Listening on port: ' + port);
+});
 
 const dbURI = "mongodb://localhost/test";
 
