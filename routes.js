@@ -27,5 +27,15 @@ router.get('/images', imageCtrl.getImages);
 
 
 
+router.post('/images', upload.single('image'), imageCtrl.uploadImage);
+router.get('/images', imageCtrl.getImages);
+router.get('/images/:id', imageCtrl.getImage);
+router.delete('/images/:id', imageCtrl.deleteImage);
+
+module.exports.UPLOAD_PATH = 'uploads';
+
+var multer = require('multer'),
+upload = multer({ dest: module.exports.UPLOAD_PATH }),
+imageCtrl = require('./image-controller');
 
 module.exports = router;
