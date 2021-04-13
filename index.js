@@ -5,9 +5,12 @@ cors = require('cors'),
 express = require('express'),
 bodyParser = require('body-parser'),
 mongoose = require('mongoose');
+dotenv = require("dotenv");
+
 
 var app = express();
 var port = 8000;
+dotenv.config();
 
 app.use(bodyParser.json());
 app.use(logger('tiny'));
