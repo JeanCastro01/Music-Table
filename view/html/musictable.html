@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  PUBLIC "XSLT-compat">
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles.css">
+      <script rel="stylesheet" href="javascript.js"></script>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+      <title>Music Table</title>
+
+       <script>
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("myTable").deleteRow(i);
+        }
+    </script>
+  
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark"><button class="navbar-toggler" type="button" data-target="#navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+               <li class="nav-item active"><a href="index.html" class="nav-link"> Home </a></li>
+             
+            </ul>
+         </div>
+      </nav>
+      <div class="container d-flex justify-content-center mt-50 mb-50">
+         <div class="card w-100">
+            <div class="card-header header-elements-inline">
+               <h5 class="card-title">Music Table Information</h5>
+               <div class="header-elements">
+                  <div class="list-icons text-muted font-weight-light"><a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a><a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a><a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a></div>
+               </div>
+            </div>
+            <div class="table-responsive">
+               <table class="table table-hover" id="myTable">
+                  <thead>
+                     <tr>
+                        <th>Artist Name</th>
+                        <th>Album Name</th>
+                        <th>Year Of Release</th>
+                        <th>Record Label Name</th>
+                        <th>Action</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+          
+                     <tr>
+                        <td>Artdate2</td>
+                        <td>Hands Up</td>
+                        <td>2020</td>
+                        <td>Fish And Chick's</td>
+                        <td>
+                           <div class="row container d-flex justify-content-center"></div><button type="button" onclick="myFunction();" class="btn btn-primary btn-icon-text"><i class="fa fa-check btn-icon-prepend"></i> Delete </button><button type="button" class="btn btn-dark btn-icon-text"> Edit <i class="fa fa-pencil btn-icon-append"></i></button></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      
+      <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+    </body>
+</html>
