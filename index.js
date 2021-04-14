@@ -51,9 +51,7 @@ app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 });
 
-app.get("/", function(req, res) {
-    res.sendFile(__dirname + "html/index.html")
-}
+
 
 const dbURI = process.env.DB_URL;
 
