@@ -36,31 +36,32 @@
  <div class="container mt-5">
    <h1 class="text-center"><i class="fas fa-music text-warning"></i><span class="text-warning"> Music</span> Details</h1>
 
-   
+   <form action="/music-controller.js" method="POST" enctype="multipart/form-data"
      <div class="form-group" method="post" action="/" >
        <label for="title">Artist Name</label>
-       <input type="text" class="form-control" id="artist" palceholder="Artist Name">
+       <input type="text" class="form-control" id="artist" palceholder="Artist Name" required>
      </div>
-     <div class="form-group" method="post" action="/" >
+     <div class="form-group" >
        <label for="artist">Album Name</label>
-       <input type="text" class="form-control" id="album" palceholder="Album Name">
+       <input type="text" class="form-control" id="album" palceholder="Album Name" required>
      </div>
-     <div class="form-group" method="post" action="/" >
+     <div class="form-group" >
        <label for="year">Year Of Release</label>
-       <input type="text" class="form-control" id="year" palceholder="Year of Release">
+       <input type="text" class="form-control" id="year" palceholder="Year of Release" required>
      </div>
-      <div class="form-group" method="post" action="/" >
+      <div class="form-group"  >
        <label for="year">Record Label Name</label>
-       <input type="text" class="form-control" id="label" palceholder="Record Label Name">
+       <input type="text" class="form-control" id="label" palceholder="Record Label Name" required>
      </div>
-     <form action="/music-controller.js">
+    </form>
+     <form action="/image-controller.js">
       <p>Album Cover</p>
       <div class="custom-file mb-3">
-        <input type="file" class="custom-file-input" id="customFile" name="filename">
+        <input type="file" class="custom-file-input" id="customFile" name="filename" required>
         <label class="custom-file-label" for="customFile">Choose file</label>
       </div>
     
-      <input type="button" id="submit" value="Add Music" class="btn btn-primary btn-block" onclick="createMusic();" >
+      <input type="button" id="submit" value="Add Music" class="btn btn-primary btn-block" onclick="createMusic(); uploadImage();" >
     </div>
     
    </form>
