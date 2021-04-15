@@ -15,11 +15,8 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
-app.use(express.static(path.join(__dirname, 'public')))
-var engines = require('consolidate');
-
-app.set('views', __dirname + '/views');
-app.engine('html', engines.mustache);
+app.set('views', __dirname + '/public/views');
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 
@@ -28,7 +25,7 @@ app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 });
 
-app.get('/',(req,res)=>{res.render('/web/index');});
+app.get('/web',(req,res)=>{res.render('index.html');});
 
 
 const dbURI = process.env.DB_URL;
