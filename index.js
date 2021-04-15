@@ -15,7 +15,10 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
-app.set('views', __dirname + '/public/views');
+
+
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/public');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
