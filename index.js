@@ -15,15 +15,15 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
+app.use(express.static(path.join(__dirname, 'public')))
+
 
 
 app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 });
 
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/web/index.html");
-})
+app.get('/',(req,res)=>{res.render('/web/index');});
 
 
 const dbURI = process.env.DB_URL;
