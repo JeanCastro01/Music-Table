@@ -16,6 +16,11 @@ app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
 app.use(express.static(path.join(__dirname, 'public')))
+var engines = require('consolidate');
+
+app.set('views', __dirname + '/views');
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 
 
 
