@@ -53,16 +53,12 @@
        <label for="year">Record Label Name</label>
        <input type="text" class="form-control" id="label" palceholder="Record Label Name">
      </div>
-      <div class="form-group"  >
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+     <form action="/action_page.php">
+      <p>Album Cover</p>
+      <div class="custom-file mb-3">
+        <input type="file" class="custom-file-input" id="customFile" name="filename">
+        <label class="custom-file-label" for="customFile">Choose file</label>
       </div>
-       <div class="form-group">
-        <input type="file" class="custom-file-input" id="inputGroupFile01"
-          aria-describedby="inputGroupFileAddon01">
-        <label class="custom-file-label" for="inputGroupFile01">Album Cover Image / Upload Here</label>
-      </div>
-    </div>
     
       <input type="button" id="submit" value="Add Music" class="btn btn-primary btn-block" onclick="myFunction();" >
     </div>
