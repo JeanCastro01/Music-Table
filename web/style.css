@@ -28,7 +28,7 @@ body {
 }
 
 .body-wrap {
-  min-height: 20px;
+  min-height: 50px;
 }
 
 .body-wrap {
@@ -58,7 +58,7 @@ body {
 }
 
 nav {
-  margin-top: 60px;
+  margin-top: 40px;
   box-shadow: 5px 4px 5px #000;
 }
 

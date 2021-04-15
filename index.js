@@ -6,7 +6,7 @@ express = require('express'),
 bodyParser = require('body-parser'),
 mongoose = require('mongoose'),
 dotenv = require("dotenv");
-
+path = require("path")
 
 var app = express();
 var port = 8000;
@@ -17,18 +17,14 @@ app.use(logger('tiny'));
 app.use(require('./routes'));
 
 
-app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/public');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-
-
 
 app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 });
 
-app.get('/web',(req,res)=>{res.render('index.html');});
+app.use(express.static(path.join(__dirname,"web")));
+
+app.get('/',(req,res)=>{res.render('index');});
 
 
 const dbURI = process.env.DB_URL;
