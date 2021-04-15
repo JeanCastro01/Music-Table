@@ -37,21 +37,23 @@
    <h1 class="text-center"><i class="fas fa-music text-warning"></i><span class="text-warning"> Music</span> Details</h1>
 
    <form action="/music-controller.js" method="POST" enctype="multipart/form-data" >
+
+       <div class="form-group" >
+       <label for="artist">Artist Name</label>
+       <input type="text" class="form-control" id="artist" palceholder="Artist Name" required>
+     </div>
  
      <div class="form-group" >
-       <label for="artist">Album Name</label>
+       <label for="album">Album Name</label>
        <input type="text" class="form-control" id="album" palceholder="Album Name" required>
      </div>
-         <div class="form-group" >
-       <label for="artist">Artist Name</label>
-       <input type="text" class="form-control" id="Artist Name" palceholder="Artist Name" required>
-     </div>
+      
      <div class="form-group" >
        <label for="year">Year Of Release</label>
        <input type="text" class="form-control" id="year" palceholder="Year of Release" required>
      </div>
       <div class="form-group"  >
-       <label for="year">Record Label Name</label>
+       <label for="labelname">Record Label Name</label>
        <input type="text" class="form-control" id="label" palceholder="Record Label Name" required>
      </div>
     </form>
