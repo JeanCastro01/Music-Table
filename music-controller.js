@@ -1,6 +1,13 @@
 var Music = require('./models/music')
 
+function createMusicTest(){
 
+    console.log("I am in the create music function")
+
+    var artistName = document.getElementById("artistname").nodeValue;
+
+    console.log(artistName);
+}
 
 
 exports.createMusic = function(req, res) { 
@@ -50,11 +57,3 @@ exports.deleteMusic = function(req, res) {
   }); 
 };
 
-function createMusicTest(){
-
-    console.log("I am in the create music function")
-
-    var artistName = document.getElementById("artistname").nodeValue;
-
-    console.log(artistName);
-}
