@@ -4,6 +4,9 @@ path = require('path'),
 fs = require('fs'),
 del = require('del');
 
+
+
+
 exports.uploadImage = function(req, res) {
     let newImage = new Image();
     newImage.filename = req.file.filename;
