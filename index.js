@@ -5,12 +5,21 @@ cors = require('cors'),
 express = require('express'),
 bodyParser = require('body-parser'),
 mongoose = require('mongoose'),
-dotenv = require("dotenv");
-path = require("path")
+dotenv = require("dotenv"),
+path = require("path");
 
 var app = express();
 var port = 8000;
 dotenv.config();
+
+
+app.use(express.static(path.join(__dirname,"view")));
+
+app.get('/',(req,res)=>{res.render('index');});
+
+app.listen(port, function(err){
+    console.log('Listening on port: ' + port);
+});
 
 app.use(bodyParser.json());
 app.use(logger('tiny'));
@@ -18,13 +27,30 @@ app.use(require('./routes'));
 
 
 
-app.listen(port, function(err){
-    console.log('Listening on port: ' + port);
-});
 
-app.use(express.static(path.join(__dirname,"web")));
 
-app.get('/',(req,res)=>{res.render('index');});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const dbURI = process.env.DB_URL;

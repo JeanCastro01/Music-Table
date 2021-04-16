@@ -1,11 +1,11 @@
-var User = require('./models/music')
+var Music = require('./models/music')
 
 
 
 
 exports.createMusic = function(req, res) { 
-    var newuser = new User(req.body);
-    newuser.save(function (err, user) { 
+    var newmusic = new Music(req.body);
+    newmusic.save(function (err, user) { 
         if (err) { 
             res.status (400).json(err);
         }
@@ -15,7 +15,7 @@ exports.createMusic = function(req, res) {
 };
 
 exports.getMusic = function(req, res) {
-  User.find({}, function (err, users) {
+  Music.find({}, function (err, users) {
     if (err) {
       res.status(400).json(err); 
     } 
@@ -24,7 +24,7 @@ exports.getMusic = function(req, res) {
 };
 
 exports.getMusic = function(req, res) {
-  User.findOne({_id: req.params.id}, function (err, users) {
+  Music.findOne({_id: req.params.id}, function (err, users) {
     if (err) {
       res.status(400).json(err); 
     } 
@@ -42,10 +42,19 @@ exports.updateMusic = function(req, res) {
 };
 
 exports.deleteMusic = function(req, res) {
-  User.findByIdAndRemove({_id: req.params.id}, function (err, users) {
+  Music.findByIdAndRemove({_id: req.params.id}, function (err, users) {
     if (err) {
       res.status(400).json(err); 
     } 
     res.json(users);
   }); 
 };
+
+function createMusicTest(){
+
+    console.log("I am in the create music function")
+
+    var artistName = document.getElementById("artistname").nodeValue;
+
+    console.log(artistName);
+}
