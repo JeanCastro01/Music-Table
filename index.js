@@ -49,13 +49,25 @@ app.use('/update', upload.single('image'), (req, res) => {
     musicupload.save(err => {
         if (err)
             return res.sendStatus(400);
-          res.redirect('/')
+          res.redirect('/musictable.html')
+    })
+})
+
+
+app.get('/', (req, res) => {
+    Music.find({}, function(err, musics) {
+        res.render('index', {
+            musicList: musics
+        })
     })
 })
 
 
 
-app.get('/', (req, res) => res.redirect('/index'));
+
+
+
+app.get('/', (req, res) => res.redirect('/musictable.html'));
 
 
 const dbURI = process.env.DB_URL;
