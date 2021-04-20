@@ -1,4 +1,4 @@
-var Music = require('./view/music')
+var Music = require('./models/music')
 
 
 
