@@ -55,27 +55,7 @@ app.use('/update', upload.single('image'), (req, res) => {
 
 
 
-app.get('/', (req, res) => {
-
-  Music.find({}, function(err, musics) {
-
-         res.render('musictable', {
-            
-            musiclist : musics
-
-         })
-
-  })
-
-      
-
-
-});
-
-
-
-
-
+app.get('/', (req, res) => res.redirect('/index'));
 
 
 const dbURI = process.env.DB_URL;
