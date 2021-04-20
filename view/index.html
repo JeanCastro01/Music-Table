@@ -1,81 +1,80 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-     <link rel="stylesheet" href="myscript.js">
- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" href="myscript.js">
 
-  
- <title>Music Table</title>
-  
-  </head>
-  <body>
+
+
+    <title>Music Table</title>
+
+</head>
+
+<body>
 
     <div class="body-wrap">
-      <div class="container">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark"><button class="navbar-toggler" type="button"
-          data-target="#navigation"><span class="navbar-toggler-icon"></span></button>
-       <div class="collapse navbar-collapse">
-          <ul class="navbar-nav">
-             <li class="nav-item active"><a href="index.html" class="nav-link"> Home </a></li>
-             <li class="nav-item active"><a href="musictable.html" class="nav-link"> Music Table</a></li>
- 
-          </ul>
-       </div>
-    </nav>
-      </div>
+        <div class="container">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark"><button class="navbar-toggler" type="button"
+                    data-target="#navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active"><a href="index.html" class="nav-link"> Home </a></li>
+                        <li class="nav-item active"><a href="musictable.html" class="nav-link"> Music Table</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
 
- <div class="container mt-5">
-   <h1 class="text-center"><i class="fas fa-music text-warning"></i><span class="text-warning"> Music</span> Details</h1>
+    <div class="container mt-5">
+        <h1 class="text-center"><i class="fas fa-music text-warning"></i><span class="text-warning"> Music</span>
+            Details</h1>
 
 
 
-   <form action="/" method="post" >
+        <form action="update" enctype="multipart/form-data" method="post">
 
-       <div class="form-group" >
-       <label for="artist">Artist Name</label>
-       <input type="text" class="form-control" name="artistname" placeholder="Artist Name" required>
-     </div>
- 
-     <div class="form-group" >
-       <label for="album">Album Name</label>
-       <input type="text" class="form-control" name="albumname" placeholder="Album Name" required>
-     </div>
-      
-     <div class="form-group" >
-       <label for="yearofrelease">Year Of Release</label>
-       <input type="text" class="form-control" id="yearofrelease" placeholder="Year of Release" required>
-     </div>
-      <div class="form-group"  >
-       <label for="labelname">Record Label Name</label>
-       <input type="text" class="form-control" name="recordlabelname" placeholder="Record Label Name" required>
-     </div>
-   
+            <div class="form-group">
+                <label for="artist">Artist Name</label>
+                <input type="text" class="form-control" name="artistname" placeholder="Artist Name" required>
+            </div>
 
-<!--     
-     <form action="/image-controller.js" method="POST">
-      <p>Album Cover</p>
-      <div class="custom-file mb-3">
-        <input type="file" class="custom-file-input" id="customFile" name="filename" required>
-        <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>
-     -->
-      <button>add music</button>
+            <div class="form-group">
+                <label for="album">Album Name</label>
+                <input type="text" class="form-control" name="albumname" placeholder="Album Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="yearofrelease">Year Of Release</label>
+                <input type="text" class="form-control" id="yearofrelease" placeholder="Year of Release" required>
+            </div>
+            <div class="form-group">
+                <label for="labelname">Record Label Name</label>
+                <input type="text" class="form-control" name="recordlabelname" placeholder="Record Label Name" required>
+            </div>
+
+            <div>
+                <label for="labelname">Album Cover</label>
+                <input type="file" name="image" id="" accept="image/*">
+                <button type="submit">Submit</button>
+
+            </div>
+        </form>
+
     </div>
-     </form>
-  
- </div>
 
 
 
 
-  </body>
-     
+</body>
+
 </html>

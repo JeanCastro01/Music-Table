@@ -45,7 +45,7 @@ app.use('/update', upload.single('image'), (req, res) => {
     musicupload.save(err => {
         if (err)
             return res.sendStatus(400);
-        res.sendFile('profile.html', {root})
+          res.redirect('/')
     })
 })
 
