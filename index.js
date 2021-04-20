@@ -1,16 +1,30 @@
 const http = require('http'),
-    // axios = require('axios'),
-    logger = require('morgan'),
+  
+    morgan = require('morgan'),
     cors = require('cors'),
     express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     dotenv = require("dotenv"),
-    path = require("path");
+    path = require("path"),
+    Music = require('./models/music');
+    upload = require('./middleware/multer_hundler');
 
-var app = express();
-var port = 8000;
+
+port = process.env.PORT || 8000;
 dotenv.config();
+
+const app = express()
+const root = path.join(__dirname+'/views/')
+app.use(express.static(root))
+app.use(express.static('storage'))
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(morgan('dev'))
+app.use(bodyParser.json());
+app.use(morgan('tiny'));
+app.use(require('./routes'));
+
 
 
 app.use(express.static(path.join(__dirname, "view")));
@@ -19,23 +33,32 @@ app.get('/', (req, res) => { res.render('index'); });
 
 
 
+app.use('/update', upload.single('image'), (req, res) => {
 
-app.listen(port, function (err) {
-    console.log('Listening on port: ' + port);
-});
+    let musicupload = new Music()
+    musicupload.artistname = req.body.artistname,
+    musicupload.albumname = req.body.albumname,
+    musicupload.yearofrelease = req.body.yearofrelease,
+    musicupload.recordlabelname = req.body.recordlabelname,
+    musicupload.file = req.file.filename
+
+    musicupload.save(err => {
+        if (err)
+            return res.sendStatus(400);
+        res.sendFile('profile.html', {root})
+    })
+})
 
 
-app.use(bodyParser.json());
-app.use(logger('tiny'));
-app.use(require('./routes'));
 
-
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
 
 
 
 const dbURI = process.env.DB_URL;
+
+app.listen(port, function (err) {
+    console.log('Listening on port: ' + port);
+});
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => console.log('connected to db'))
