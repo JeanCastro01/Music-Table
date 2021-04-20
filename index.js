@@ -17,7 +17,8 @@ dotenv.config();
 
 const app = express()
 
-app.use(express.static(root))
+// app.use(express.static(root));
+// const root = path.join(__dirname+'/views/')
 app.use(express.static('storage'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -56,9 +57,9 @@ app.use('/update', upload.single('image'), (req, res) => {
 
 app.get('/', (req, res) => {
 
-  Music.find({}, function(musics) {
+  Music.find({}, function(err, musics) {
 
-         res.render('index', {
+         res.render('musictable', {
             
             musiclist : musics
 
