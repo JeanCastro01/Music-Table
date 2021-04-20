@@ -8,14 +8,15 @@ const http = require('http'),
     dotenv = require("dotenv"),
     path = require("path"),
     Music = require('./models/music');
-    upload = require('./middleware/multer_hundler');
+    upload = require('./middleware/multer_hundler'),
+    ejs = require('ejs');
 
 
 port = process.env.PORT || 8000;
 dotenv.config();
 
 const app = express()
-const root = path.join(__dirname+'/views/')
+
 app.use(express.static(root))
 app.use(express.static('storage'))
 app.use(express.urlencoded({extended: true}))
@@ -29,7 +30,9 @@ app.use(require('./routes'));
 
 app.use(express.static(path.join(__dirname, "view")));
 
-app.get('/', (req, res) => { res.render('index'); });
+
+
+app.set('view engine', 'ejs');
 
 
 
@@ -48,6 +51,26 @@ app.use('/update', upload.single('image'), (req, res) => {
           res.redirect('/')
     })
 })
+
+
+
+app.get('/', (req, res) => {
+
+  Music.find({}, function(musics) {
+
+         res.render('index', {
+            
+            musiclist : musics
+
+         })
+
+  })
+
+      
+
+
+});
+
 
 
 
