@@ -29,7 +29,7 @@
 </head>
 
 <body>
-   <div class="body-wrap">
+     <div class="body-wrap">
       <div class="container">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark"><button class="navbar-toggler" type="button"
           data-target="#navigation"><span class="navbar-toggler-icon"></span></button>
@@ -41,60 +41,44 @@
           </ul>
        </div>
     </nav>
-      </div>
-    </div>
-   
 
 
-   <div id="rs-team" class="rs-team fullwidth-team pt-100 pb-70">
-      
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-4 col-md-6">
-               <div class="team-item">
-                  <div class="team-img">
-                     <img src="Artwork_PCT045-3.png" alt="team Image">
-                     <div class="normal-text">
-                         <%musiclist.forEach(Music => {%>
-                        <h4 class="team-name"><%=Music.artistname%></h4>
-                       <})%>
-                     </div>
-                  </div>
-                  <div class="team-content">
-                     <div class="display-table">
-                        <div class="display-table-cell">
-                           <button type="button" class="btn btn-secondary btn-lg">Delete</button>
-                           <div class="team-details">
-                              <h4 class="team-name">
-                                 <a href="#">Seroun Pawor</a>
-                              </h4>
-                              <span class="postion">CEO &amp; Founder</span>
-                           </div>
-                        </div>
-                     </div>
 
-  
-           
-           
-
-                  </div>
-               </div>
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Music <b>Table</b></h2></div>
+                   
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
-   </div>
-   <!-- .container-fullwidth -->
-   </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Artist Name</th>
+                        <th>Album Name</th>
+                        <th>Year Of Release</th>
+                        <th>Label Name</th>
+                        <th>Action</th>
 
-
-
-
-
-
-
-
-
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <th></th>
+                        <td>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">Delete</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>     
 
 
 

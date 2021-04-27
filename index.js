@@ -44,7 +44,7 @@ app.use('/update', upload.single('image'), (req, res) => {
     musicupload.albumname = req.body.albumname,
     musicupload.yearofrelease = req.body.yearofrelease,
     musicupload.recordlabelname = req.body.recordlabelname,
-    musicupload.file = req.file.filename
+   
 
     musicupload.save(err => {
         if (err)
