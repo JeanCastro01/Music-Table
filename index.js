@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(morgan('tiny'));
 app.use(require('./routes'));
 
-
+app.use(express.static('views'));
 
 
 app.set('views', './views');
@@ -40,7 +40,7 @@ app.get('', (req, res) => {
 })
 
 app.get('/musictable', (req, res) => {
-    res.render('musictable')
+   res.sendFile(__dirname + '/views/musictable.ejs')
 })
 
 
