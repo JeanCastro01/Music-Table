@@ -17,8 +17,7 @@ dotenv.config();
 
 const app = express()
 
-// app.use(express.static(root));
-// const root = path.join(__dirname+'/views/')
+
 app.use(express.static('storage'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -29,11 +28,24 @@ app.use(require('./routes'));
 
 
 
-app.use(express.static(path.join(__dirname, "view")));
 
-
-
+app.set('views', './views');
 app.set('view engine', 'ejs');
+
+
+
+// Navigation
+app.get('', (req, res) => {
+    res.render('index')
+})
+
+app.get('/musictable', (req, res) => {
+    res.render('musictable')
+})
+
+
+
+
 
 
 
@@ -49,7 +61,7 @@ app.use('/update', upload.single('image'), (req, res) => {
     musicupload.save(err => {
         if (err)
             return res.sendStatus(400);
-          res.redirect('/musictable.html')
+          res.redirect('/musictable')
     })
 })
 
@@ -67,7 +79,7 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/', (req, res) => res.redirect('/musictable.html'));
+app.get('/', (req, res) => res.redirect('/'));
 
 
 const dbURI = process.env.DB_URL;
