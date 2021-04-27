@@ -1,5 +1,4 @@
 const http = require('http'),
-  
     morgan = require('morgan'),
     cors = require('cors'),
     express = require('express'),
@@ -7,7 +6,7 @@ const http = require('http'),
     mongoose = require('mongoose'),
     dotenv = require("dotenv"),
     path = require("path"),
-    Music = require('./models/music');
+    Music = require('./models/music'),
     upload = require('./middleware/multer_hundler'),
     ejs = require('ejs');
 
@@ -25,12 +24,17 @@ app.use(morgan('dev'))
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
 app.use(require('./routes'));
-
 app.use(express.static('views'));
 
 
-app.set('views', './views');
+
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.set("views", path.resolve(__dirname, "views"));
+
+
+
+
 
 
 
@@ -39,13 +43,11 @@ app.get('', (req, res) => {
     res.render('index')
 })
 
+
 app.get('/musictable', (req, res) => {
-   res.sendFile(__dirname + '/views/musictable.ejs')
+//    res.sendFile(__dirname + '/views/musictable.ejs')
+  res.render('musictable')
 })
-
-
-
-
 
 
 
@@ -61,16 +63,20 @@ app.use('/update', upload.single('image'), (req, res) => {
     musicupload.save(err => {
         if (err)
             return res.sendStatus(400);
-          res.redirect('/musictable')
+        //   res.redirect('/musictable')
+        res.render('musictable')
     })
 })
 
 
-app.get('/', (req, res) => {
-    Music.find({}, function(err, musics) {
-        res.render('index', {
-            musicList: musics
+app.get('views/musictable', (req, res)=>{
+    Music.find({}, function(err, services){
+        if(err) res.json(err)
+        res.render('musictable', {
+            servicesList: services
+        
         })
+        console.log(services)
     })
 })
 
@@ -78,8 +84,7 @@ app.get('/', (req, res) => {
 
 
 
-
-app.get('/', (req, res) => res.redirect('/'));
+// app.get('/', (req, res) => res.redirect('/'));
 
 
 const dbURI = process.env.DB_URL;

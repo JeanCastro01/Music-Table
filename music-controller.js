@@ -30,6 +30,9 @@ exports.getMusic = function(req, res) {
   }); 
 };
 
+
+
+
 exports.getMusic = function(req, res) {
   Music.findOne({_id: req.params.id}, function (err, musics) {
     if (err) {
