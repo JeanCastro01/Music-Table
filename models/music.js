@@ -10,5 +10,5 @@ var musicSchema = new mongoose.Schema({
 { timestamps: true }
 );
 
-module.exports = mongoose.model('music', musicSchema);
+module.exports = mongoose.model('Music', musicSchema);
 
