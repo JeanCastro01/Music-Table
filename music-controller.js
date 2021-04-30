@@ -2,26 +2,6 @@ var Music = require('./models/music')
 
 
 
-
-// exports.createMusic = function(req, res) { 
-
-//     let musicupload = new Music()
-//     musicupload.artistname = req.body.artistname,
-//     musicupload.albumname = req.body.albumname,
-//     musicupload.yearofrelease = req.body.yearofrelease,
-//     musicupload.recordlabelname = req.body.recordlabelname,
-
-
-//     musicupload.save(err => {
-//         if (err)
-//             return res.sendStatus(400);
-//         //   res.redirect('/musictable')
-//         console.log(musicupload)
-//       res.redirect('musictable');
-//     })
-// }
-
-
 exports.createMusic = async (req, res) => {
 
     const newmusic = new Music({
@@ -80,6 +60,7 @@ exports.deleteMusic = function (req, res) {
             res.status(400).json(err);
         }
         res.json(musics);
+         res.redirect('index');
     });
 };
 

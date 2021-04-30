@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(bodyParser.json());
-app.use(morgan('tiny'));
+
 app.use(require('./routes'));
 app.use(express.static('views'));
 
@@ -36,14 +36,6 @@ app.set("views", path.resolve(__dirname, "views"));
 // Navigation
 app.use(('/index', require('./routes'))
 )
-
-
-// app.get('/musictable', (req, res) => {
-//     //    res.sendFile(__dirname + '/views/musictable.ejs')
-//     res.render('musictable')
-// })
-
-
 
 
 
