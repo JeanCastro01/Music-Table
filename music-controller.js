@@ -1,19 +1,24 @@
-var Music = require('./models/music')
+var Music = require('./models/music') // passing the music model schema
 
 
-
+/**
+ * 
+ * 
+ * method to creat the new music entered by the user in the html form
+ */
 exports.createMusic = async (req, res) => {
 
     const newmusic = new Music({
 
-        artistname: req.body.artistname,
+     // requesting each inupt field name
+        artistname: req.body.artistname, 
         albumname: req.body.albumname,
         yearofrelease: req.body.yearofrelease,
         recordlabelname: req.body.recordlabelname
 
     });
     try {
-        await newmusic.save();
+        await newmusic.save(); // everything is saved to the database collection
         console.log(newmusic);
     } catch (error) {
         console.log("There was an error with your messsage");
@@ -21,44 +26,26 @@ exports.createMusic = async (req, res) => {
     }
     //redirecting to index page, therefore will update table
     res.redirect('musictable');
-    // res.render('musictable');
+
 };
 
 
 
-exports.getMusic = async (req, res) => {
+exports.getMusic = async (req, res) => { // getting the music details from database collection 
     Music.find({}, function (err, service) {
         res.render('musictable', {
             Music: service
         });
     });
-    //rendering index page, sending the fetched products
+    //rendering index page, sending the fetched music
 };
-
-// exports.deleteMusic = function (req, res) {
-//  console.log("I am here");
-
-//     var deleteID = document.getElementsByName("deleteButton").values;
-
-   
-
-//     Music.findByIdAndRemove({ _id: req.params.deleteButton }, function (err, musics) {
-//          console.log(_id)
-
-//         if (err) {
-//             res.status(400).json(err);
-//         }
-//         res.json(musics);
-//          res.redirect('musictable');
-//     });
-// };
-
-
+// method to delete a selected music from the bd collection
   exports.deleteMusic = async (req, res, next) => {
     const id = req.params.id;
     try {
-      const result = await Product.findByIdAndDelete(id);
-      // console.log(result);
+      const result = await Product.findByIdAndDelete(id); // passing the music selected id to the variable 
+  
+      
       if (!result) {
         throw createError(404, 'Product does not exist.');
       }
@@ -75,7 +62,7 @@ exports.getMusic = async (req, res) => {
 
 
 
-
+// method to get the especific music from the music table collection
 exports.getMusic = function (req, res) {
     Music.findOne({ _id: req.params.id }, function (err, musics) {
         if (err) {
@@ -85,6 +72,7 @@ exports.getMusic = function (req, res) {
     });
 };
 
+// method to updating music from the table
 exports.updateMusic = function (req, res) {
     User.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true }, function (err, musics) {
         if (err) {
@@ -93,5 +81,7 @@ exports.updateMusic = function (req, res) {
         res.json(musics);
     });
 };
+
+
 
 
