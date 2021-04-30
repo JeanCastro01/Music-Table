@@ -79,25 +79,17 @@
 
 
 
-                                        <!-- <button data-doc= "<%= list._id %>" action="/music" type="submit" class="btn btn-danger" >Delete</button> -->
-
-                                        <!-- <a class="btn btn-raised btn-danger" action="/music list._id %> ">Delete</a> -->
-
-                                           
+                                        <form  method="DELETE" action="/music/id<%=list._id %>?_method=DELETE">
 
 
+                                            <button type="Submit"> Delete
 
-                                           <form action="/music/<%=list._id %>">
-                                <button action="/music/:_id<%= list._id %>" class="btn btn-danger" style="margin-left: 5px;" type="submit"><i class="fa fa-trash" style="font-size: 15px;">
-                                </i></button>
-                               </form>
+                                            </button>
+                                        </form>
 
                                     </td>
                                     </td>
                                 </tr>
-
-
-
                                 </tr>
                                 <% }) %>
                             </tbody>

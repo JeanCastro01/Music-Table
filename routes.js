@@ -25,6 +25,8 @@ router.get('/', function(req, res) {
   res.render('musictable');
 });
 
+
+
 router.post('/music', musicCtrl.createMusic);
 
 router.get('/music', musicCtrl.getMusic);

@@ -35,15 +35,44 @@ exports.getMusic = async (req, res) => {
     //rendering index page, sending the fetched products
 };
 
-exports.deleteMusic = function (req, res) {
-    Music.findByIdAndRemove({ _id: req.params.id }, function (err, musics) {
-        if (err) {
-            res.status(400).json(err);
-        }
-        res.json(musics);
-         res.redirect('musictable');
-    });
-};
+// exports.deleteMusic = function (req, res) {
+//  console.log("I am here");
+
+//     var deleteID = document.getElementsByName("deleteButton").values;
+
+   
+
+//     Music.findByIdAndRemove({ _id: req.params.deleteButton }, function (err, musics) {
+//          console.log(_id)
+
+//         if (err) {
+//             res.status(400).json(err);
+//         }
+//         res.json(musics);
+//          res.redirect('musictable');
+//     });
+// };
+
+
+  exports.deleteMusic = async (req, res, next) => {
+    const id = req.params.id;
+    try {
+      const result = await Product.findByIdAndDelete(id);
+      // console.log(result);
+      if (!result) {
+        throw createError(404, 'Product does not exist.');
+      }
+      res.send(result);
+    } catch (error) {
+      console.log(error.message);
+      if (error instanceof mongoose.CastError) {
+        next(createError(400, 'Invalid Product id'));
+        return;
+      }
+      next(error);
+    }
+  }
+
 
 
 
