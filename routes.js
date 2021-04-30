@@ -15,15 +15,6 @@ router.get('/musictable', (req, res) => {
      });
     });
 
-router.get('/', (req, res) =>{
-    Music.findByIdAndRemove({ _id: req.params.id }, function (err, musics) {
-        if (err) {
-            res.status(400).json(err);
-        }
-        res.json(musics);
-    });
-})
-
 
 router.get('/', function(req, res) {
   res.render('index');

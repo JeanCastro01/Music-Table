@@ -35,6 +35,17 @@ exports.getMusic = async (req, res) => {
     //rendering index page, sending the fetched products
 };
 
+exports.deleteMusic = function (req, res) {
+    Music.findByIdAndRemove({ _id: req.params.id }, function (err, musics) {
+        if (err) {
+            res.status(400).json(err);
+        }
+        res.json(musics);
+         res.redirect('musictable');
+    });
+};
+
+
 
 exports.getMusic = function (req, res) {
     Music.findOne({ _id: req.params.id }, function (err, musics) {
@@ -54,13 +65,4 @@ exports.updateMusic = function (req, res) {
     });
 };
 
-exports.deleteMusic = function (req, res) {
-    Music.findByIdAndRemove({ _id: req.params.id }, function (err, musics) {
-        if (err) {
-            res.status(400).json(err);
-        }
-        res.json(musics);
-         res.redirect('index');
-    });
-};
 
