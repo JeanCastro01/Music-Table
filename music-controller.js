@@ -1,4 +1,5 @@
 var Music = require('./models/music') // passing the music model schema
+mongoose = require('mongoose'),
 
 
 /**
@@ -39,26 +40,17 @@ exports.getMusic = async (req, res) => { // getting the music details from datab
     });
     //rendering index page, sending the fetched music
 };
-// method to delete a selected music from the bd collection
-  exports.deleteMusic = async (req, res, next) => {
-    const id = req.params.id;
-    try {
-      const result = await Product.findByIdAndDelete(id); // passing the music selected id to the variable 
-  
-      
-      if (!result) {
-        throw createError(404, 'Product does not exist.');
-      }
-      res.send(result);
-    } catch (error) {
-      console.log(error.message);
-      if (error instanceof mongoose.CastError) {
-        next(createError(400, 'Invalid Product id'));
-        return;
-      }
-      next(error);
-    }
-  }
+
+
+// method to delete the music from the db collection
+exports.deleteMusic = function(req, res) {
+  Music.findByIdAndRemove({_id: req.params.id}, function (err, users) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.redirect('/musictable')
+  }); 
+};
 
 
 

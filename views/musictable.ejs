@@ -77,16 +77,11 @@
                                     <td><%= list.yearofrelease %></td>
                                     <td><%= list.recordlabelname %></td>
                                     <td>
-
-
-
-                                        <form  method="DELETE" action="/music/id<%=list._id %>?_method=DELETE">
-
-
-                                            <button type="Submit"> Delete
-
-                                            </button>
-                                        </form>
+                                        <form action="/music/<%= list.id %>?_method=delete" method="POST"
+                                            class="d-inline">
+                                            <button class="btn btn-danger" style="margin-left: 5px;"
+                                                type="submit">Delete</button>
+                                        </form> 
 
                                     </td>
                                     </td>

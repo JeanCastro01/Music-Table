@@ -37,6 +37,6 @@ router.get('/music/:_id', musicCtrl.getMusic); // method from the controller to 
 
 router.put('/music/:_id', musicCtrl.updateMusic); // method from the controller to update the row of the table music by passing a ID
 
-router.delete('/music/:_id', musicCtrl.deleteMusic); // method from controller to delete the music by using the ID
+router.delete('/music/:id', musicCtrl.deleteMusic); // method from controller to delete the music by using the ID
 
 module.exports = router;

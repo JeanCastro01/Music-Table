@@ -10,6 +10,7 @@ const http = require('http'),
     musicontrollers = require('./music-controller');
     ejs = require('ejs');
     dotenv.config();
+    methodOverride = require('method-override')
 
 const app = express() // declaring the app to use  express
 
@@ -31,11 +32,13 @@ app.set('view engine', 'ejs'); // puling up my static page
 
 app.set("views", path.resolve(__dirname, "views"));
 
+app.use(methodOverride('_method'))
 
 // Navigation path
 app.use(('/index', require('./routes'))
 )
 
+app.use('/musictable' , require('./routes'))
 
 
 var PORT = process.env.PORT || 8000; // declaring the port for heroku and the local port
