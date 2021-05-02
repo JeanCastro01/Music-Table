@@ -16,6 +16,7 @@ const app = express() // declaring the app to use  express
 
 
 
+
 app.use(express.static('storage'))
 app.use(express.urlencoded({ extended: true })) // this is a middlware package that cames with the express package
 
