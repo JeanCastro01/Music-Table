@@ -39,6 +39,8 @@ exports.getMusic = async (req, res) => { // getting the music details from datab
         });
     });
     //rendering index page, sending the fetched music
+
+    
 };
 
 
