@@ -1,7 +1,7 @@
 
 # Music Table Application
 
-Welcome to the Music Table Application! This project provides a web-based interface for managing a music database. You can add, view, and delete music records through a simple form and a responsive table.
+This project provides a web-based interface for managing a music database. You can add, view, and delete music records through a simple form and a responsive table.
 
 ## Project Structure
 
